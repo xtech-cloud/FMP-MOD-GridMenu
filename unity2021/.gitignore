@@ -1,0 +1,19 @@
+
+/_dist_/
+/_build_/
+/GridMenu/Assets/TextMesh Pro/
+/GridMenu/Assets/TextMesh Pro.meta
+/GridMenu/Assets/Plugins/
+/GridMenu/Assets/Plugins.meta
+/GridMenu/Assets/3rd/
+/GridMenu/Assets/3rd.meta
+/GridMenu/Library/
+/GridMenu/obj/
+/GridMenu/Logs/
+/GridMenu/Temp/
+/GridMenu/UserSettings/
+/GridMenu/*.sln
+/GridMenu/*.csproj
+/GridMenu/.vsconfig
+/GridMenu/.vs/
+/.UNITY_HOME.env
