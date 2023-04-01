@@ -1,27 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
 <MyConfig version="1.0">
-    <!-- UI 
+  <!-- UI 
       visible: 预加载完成后是否显示
       slot: ui根节点在主Canvas中的挂载路径
     -->
-    <UI visible="true" slot="[root]"/>
-    <!-- World
+  <UI visible="true" slot="[root]"/>
+  <!-- World
       visible: 预加载完成后是否显示
       slot: world根节点的挂载路径
     -->
-    <World visible="true" slot="[root]"/>
-    <!-- 远程过程调用
+  <World visible="true" slot="[root]"/>
+  <!-- 远程过程调用
       address: 地址
     -->
-    <GRPC address="https://localhost:19000"/>
-    <!-- 样式列表
+  <GRPC address="https://localhost:19000"/>
+  <!-- 样式列表
       name: 名称
     -->
-    <Styles>
-        <Style name="default">
-        </Style>
-    </Styles>
-    <!-- 预创建的实例列表
+  <Styles>
+    <Style name="default">
+      <Background image="bg.jpg"/>
+      <Grid column="96" row="54"/>
+      <CellS>
+        <Cell name="logo" columnStart="5" columnEnd="68" rowStart="3" rowEnd="8" marginLeft="0" marginRight="0" marginTop="0" marginBottom="0">
+          <Content type="Image">
+            <ParameterS>
+              <Parameter key="image" value="logo.png" type="string"/>
+            </ParameterS>
+          </Content>
+        </Cell>
+        <Cell name="carousel" columnStart="5" columnEnd="68" rowStart="10" rowEnd="43">
+          <Content type="Carousel">
+            <ParameterS>
+              <Parameter key="count" value="2" type="int"/>
+              <Parameter key="item_1_type" value="Image" type="string"/>
+              <Parameter key="item_1_uri" value="carousel_1.jpg" type="string"/>
+              <Parameter key="item_1_duration" value="5" type="int"/>
+              <Parameter key="item_2_type" value="Video" type="string"/>
+              <Parameter key="item_2_uri" value="carousel_2.mp4" type="string"/>
+              <Parameter key="item_2_duration" value="10" type="int"/>
+            </ParameterS>
+          </Content>
+        </Cell>
+        <Cell name="入口1" columnStart="70" columnEnd="80" rowStart="10" rowEnd="20">
+          <Content type="Button">
+            <ParameterS>
+              <Parameter key="image" value="entry-1.png" type="string"/>
+            </ParameterS>
+          </Content>
+        </Cell>
+        <Cell name="入口2" columnStart="70" columnEnd="80" rowStart="22" rowEnd="32">
+          <Content type="Button">
+            <ParameterS>
+              <Parameter key="image" value="entry-1.png" type="string"/>
+            </ParameterS>
+          </Content>
+        </Cell>
+        <Cell name="入口3" columnStart="70" columnEnd="80" rowStart="34" rowEnd="43">
+          <Content type="Button">
+            <ParameterS>
+              <Parameter key="image" value="entry-2.png" type="string"/>
+            </ParameterS>
+          </Content>
+        </Cell>
+        <Cell name="入口4" columnStart="82" columnEnd="92" rowStart="10" rowEnd="20">
+          <Content type="Button">
+            <ParameterS>
+              <Parameter key="image" value="entry-1.png" type="string"/>
+            </ParameterS>
+          </Content>
+        </Cell>
+        <Cell name="入口5" columnStart="82" columnEnd="92" rowStart="22" rowEnd="32">
+          <Content type="Button">
+            <ParameterS>
+              <Parameter key="image" value="entry-1.png" type="string"/>
+            </ParameterS>
+          </Content>
+        </Cell>
+        <Cell name="入口6" columnStart="82" columnEnd="92" rowStart="34" rowEnd="43">
+          <Content type="Button">
+            <ParameterS>
+              <Parameter key="image" value="entry-2.png" type="string"/>
+            </ParameterS>
+          </Content>
+        </Cell>
+        <Cell name="资源栏" columnStart="5" columnEnd="92" rowStart="45" rowEnd="52">
+
+        </Cell>
+      </CellS>
+      <Debug active="false" lineColor="#FF0000FF" cellColor="#00FF0088" drawLine="true" drawCell="true"/>
+    </Style>
+  </Styles>
+  <!-- 预创建的实例列表
       uid: 实例的唯一ID
       style: 使用的样式名
       uiRoot: UI挂载的根节点（需可见），空值时等于UI.slot
@@ -29,26 +99,26 @@
       worldRoot: World挂载的根节点（需可见），空值时等于World.slot
       worldSlot: World在worldRoot下的路径
     -->
-    <Instances>
-        <Instance uid="default" style="default" uiRoot="" uiSlot="" worldRoot="" worldSlot=""/>
-    </Instances>
-    <!-- 预加载 -->
-    <Preload>
-        <!-- 消息订阅的主题
+  <Instances>
+    <Instance uid="default" style="default" uiRoot="" uiSlot="" worldRoot="" worldSlot=""/>
+  </Instances>
+  <!-- 预加载 -->
+  <Preload>
+    <!-- 消息订阅的主题
           message: 消息
           Parameter.key: 参数的键
           Parameter.value: 参数的值
           Parameter.type: 参数的类型，支持的类型为string,int,float,bool
         -->
-        <Subjects>
-            <Subject message="/XTC/GridMenu/Open">
-                <Parameters>
-                    <Parameter key="uid" value="default" type="string"/>
-                    <Parameter key="source" value="" type="string"/>
-                    <Parameter key="uri" value="" type="string"/>
-                    <Parameter key="delay" value="0" type="float"/>
-                </Parameters>
-            </Subject>
-        </Subjects>
-    </Preload>
+    <Subjects>
+      <Subject message="/XTC/GridMenu/Open">
+        <Parameters>
+          <Parameter key="uid" value="default" type="string"/>
+          <Parameter key="source" value="" type="string"/>
+          <Parameter key="uri" value="" type="string"/>
+          <Parameter key="delay" value="0" type="float"/>
+        </Parameters>
+      </Subject>
+    </Subjects>
+  </Preload>
 </MyConfig>
