@@ -84,6 +84,9 @@
     <Reference Include="UnityEngine.TextRenderingModule">
       <HintPath>{{UNITY_HOME}}\Editor\Data\Managed\UnityEngine\UnityEngine.TextRenderingModule.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.VideoModule">
+      <HintPath>{{UNITY_HOME}}\Editor\Data\Managed\UnityEngine\UnityEngine.VideoModule.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

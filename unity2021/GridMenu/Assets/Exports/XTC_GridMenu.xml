@@ -22,14 +22,14 @@
       <Background image="bg.jpg"/>
       <Grid column="96" row="54"/>
       <CellS>
-        <Cell name="logo" columnStart="5" columnEnd="68" rowStart="3" rowEnd="8" marginLeft="0" marginRight="0" marginTop="0" marginBottom="0">
-          <Content type="Image">
+        <Cell name="logo" columnStart="3" columnEnd="63" rowStart="2" rowEnd="4" marginLeft="0" marginRight="0" marginTop="0" marginBottom="0">
+          <Content type="RawImage">
             <ParameterS>
               <Parameter key="image" value="logo.png" type="string"/>
             </ParameterS>
           </Content>
         </Cell>
-        <Cell name="carousel" columnStart="5" columnEnd="68" rowStart="10" rowEnd="43">
+        <Cell name="carousel" columnStart="3" columnEnd="63" rowStart="6" rowEnd="39">
           <Content type="Carousel">
             <ParameterS>
               <Parameter key="count" value="2" type="int"/>
@@ -42,53 +42,117 @@
             </ParameterS>
           </Content>
         </Cell>
-        <Cell name="入口1" columnStart="70" columnEnd="80" rowStart="10" rowEnd="20">
+        <Cell name="入口1" columnStart="66" columnEnd="74" rowStart="6" rowEnd="21">
           <Content type="Button">
             <ParameterS>
               <Parameter key="image" value="entry-1.png" type="string"/>
             </ParameterS>
           </Content>
         </Cell>
-        <Cell name="入口2" columnStart="70" columnEnd="80" rowStart="22" rowEnd="32">
+        <Cell name="入口2" columnStart="76" columnEnd="84" rowStart="6" rowEnd="21">
           <Content type="Button">
             <ParameterS>
               <Parameter key="image" value="entry-1.png" type="string"/>
             </ParameterS>
           </Content>
         </Cell>
-        <Cell name="入口3" columnStart="70" columnEnd="80" rowStart="34" rowEnd="43">
+        <Cell name="入口3" columnStart="86" columnEnd="94" rowStart="6" rowEnd="21">
           <Content type="Button">
             <ParameterS>
               <Parameter key="image" value="entry-2.png" type="string"/>
             </ParameterS>
           </Content>
         </Cell>
-        <Cell name="入口4" columnStart="82" columnEnd="92" rowStart="10" rowEnd="20">
+        <Cell name="入口4" columnStart="66" columnEnd="74" rowStart="24" rowEnd="39">
           <Content type="Button">
             <ParameterS>
               <Parameter key="image" value="entry-1.png" type="string"/>
             </ParameterS>
           </Content>
         </Cell>
-        <Cell name="入口5" columnStart="82" columnEnd="92" rowStart="22" rowEnd="32">
+        <Cell name="入口5" columnStart="76" columnEnd="84" rowStart="24" rowEnd="39">
           <Content type="Button">
             <ParameterS>
               <Parameter key="image" value="entry-1.png" type="string"/>
             </ParameterS>
           </Content>
         </Cell>
-        <Cell name="入口6" columnStart="82" columnEnd="92" rowStart="34" rowEnd="43">
+        <Cell name="入口6" columnStart="86" columnEnd="94" rowStart="24" rowEnd="39">
           <Content type="Button">
             <ParameterS>
               <Parameter key="image" value="entry-2.png" type="string"/>
             </ParameterS>
           </Content>
         </Cell>
-        <Cell name="资源栏" columnStart="5" columnEnd="92" rowStart="45" rowEnd="52">
-
+        <Cell name="资源栏" columnStart="3" columnEnd="94" rowStart="42" rowEnd="52">
+          <Content type="SlicedImage">
+            <ParameterS>
+              <Parameter key="image" value="dock-bg.png" type="string"/>
+              <Parameter key="border_left" value="64" type="int"/>
+              <Parameter key="border_right" value="64" type="int"/>
+              <Parameter key="border_top" value="64" type="int"/>
+              <Parameter key="border_bottom" value="64" type="int"/>
+            </ParameterS>
+          </Content>
+        </Cell>
+        <Cell name="资源1" columnStart="6" columnEnd="13" rowStart="42" rowEnd="52">
+          <Content type="Button">
+            <ParameterS>
+              <Parameter key="image" value="entry-2.png" type="string"/>
+            </ParameterS>
+          </Content>
+        </Cell>
+        <Cell name="资源2" columnStart="17" columnEnd="24" rowStart="42" rowEnd="52">
+          <Content type="Button">
+            <ParameterS>
+              <Parameter key="image" value="entry-2.png" type="string"/>
+            </ParameterS>
+          </Content>
+        </Cell>
+        <Cell name="资源3" columnStart="28" columnEnd="35" rowStart="42" rowEnd="52">
+          <Content type="Button">
+            <ParameterS>
+              <Parameter key="image" value="entry-2.png" type="string"/>
+            </ParameterS>
+          </Content>
+        </Cell>
+        <Cell name="资源4" columnStart="39" columnEnd="46" rowStart="42" rowEnd="52">
+          <Content type="Button">
+            <ParameterS>
+              <Parameter key="image" value="entry-2.png" type="string"/>
+            </ParameterS>
+          </Content>
+        </Cell>
+        <Cell name="资源5" columnStart="50" columnEnd="57" rowStart="42" rowEnd="52">
+          <Content type="Button">
+            <ParameterS>
+              <Parameter key="image" value="entry-2.png" type="string"/>
+            </ParameterS>
+          </Content>
+        </Cell>
+        <Cell name="资源6" columnStart="61" columnEnd="68" rowStart="42" rowEnd="52">
+          <Content type="Button">
+            <ParameterS>
+              <Parameter key="image" value="entry-2.png" type="string"/>
+            </ParameterS>
+          </Content>
+        </Cell>
+        <Cell name="资源7" columnStart="72" columnEnd="79" rowStart="42" rowEnd="52">
+          <Content type="Button">
+            <ParameterS>
+              <Parameter key="image" value="entry-2.png" type="string"/>
+            </ParameterS>
+          </Content>
+        </Cell>
+        <Cell name="资源8" columnStart="83" columnEnd="90" rowStart="42" rowEnd="52">
+          <Content type="Button">
+            <ParameterS>
+              <Parameter key="image" value="entry-2.png" type="string"/>
+            </ParameterS>
+          </Content>
         </Cell>
       </CellS>
-      <Debug active="false" lineColor="#FF0000FF" cellColor="#00FF0088" drawLine="true" drawCell="true"/>
+      <Debug active="true" lineColor="#FF0000FF" cellColor="#00FF0088" drawLine="true" drawCell="true"/>
     </Style>
   </Styles>
   <!-- 预创建的实例列表

@@ -120,18 +120,31 @@ namespace XTC.FMP.MOD.GridMenu.LIB.Unity
             int rootHeight = (int)rtRootUI.rect.height;
             int gridWidth = rootWidth / style_.grid.column;
             int gridHeight = style_.grid.row == 0 ? gridWidth : rootHeight / style_.grid.row;
-            Action<GameObject, string> buildImage = (_obj, _image) =>
+            Action<GameObject, string> buildRawImage = (_obj, _image) =>
             {
-                var img = _obj.AddComponent<Image>();
-                img.preserveAspect = true;
+                var img = _obj.AddComponent<RawImage>();
                 if (!string.IsNullOrEmpty(_image))
                 {
                     loadTextureFromTheme(_image, (_texture) =>
                     {
-                        img.sprite = Sprite.Create(_texture, new Rect(0, 0, _texture.width, _texture.height), new Vector2(0.5f, 0.5f));
+                        img.texture = _texture;
                     }, () => { });
                 }
             };
+
+            Action<GameObject, string, Vector4> buildSlicedImage = (_obj, _image, _border) =>
+            {
+                var img = _obj.AddComponent<Image>();
+                img.type = Image.Type.Sliced;
+                if (!string.IsNullOrEmpty(_image))
+                {
+                    loadTextureFromTheme(_image, (_texture) =>
+                    {
+                        img.sprite = Sprite.Create(_texture, new Rect(0, 0, _texture.width, _texture.height), new Vector2(0.5f, 0.5f), 100, 1, SpriteMeshType.Tight, _border);
+                    }, () => { });
+                }
+            };
+
 
             Action<GameObject, string> buildVideo = (_obj, _uri) =>
             {
@@ -160,15 +173,24 @@ namespace XTC.FMP.MOD.GridMenu.LIB.Unity
                 var rtCloneCell = cloneCell.GetComponent<RectTransform>();
                 rtCloneCell.anchoredPosition = new Vector2(x, y);
                 rtCloneCell.sizeDelta = new Vector2(width, height);
-                if (cell.content.type == "Image")
+                if (cell.content.type == "RawImage")
                 {
                     var imageValue = tryParseFromParameter<string>(cell.content.parameterS, "image");
-                    buildImage(cloneCell, imageValue);
+                    buildRawImage(cloneCell, imageValue);
+                }
+                else if (cell.content.type == "SlicedImage")
+                {
+                    var imageValue = tryParseFromParameter<string>(cell.content.parameterS, "image");
+                    var border_left = tryParseFromParameter<int>(cell.content.parameterS, "border_left");
+                    var border_right = tryParseFromParameter<int>(cell.content.parameterS, "border_right");
+                    var border_top = tryParseFromParameter<int>(cell.content.parameterS, "border_top");
+                    var border_bottom = tryParseFromParameter<int>(cell.content.parameterS, "border_bottom");
+                    buildSlicedImage(cloneCell, imageValue, new Vector4(border_left, border_bottom, border_right, border_top));
                 }
                 else if (cell.content.type == "Button")
                 {
                     var imageValue = tryParseFromParameter<string>(cell.content.parameterS, "image");
-                    buildImage(cloneCell, imageValue);
+                    buildRawImage(cloneCell, imageValue);
                     var btn = cloneCell.AddComponent<Button>();
                     btn.targetGraphic = cloneCell.GetComponent<RawImage>();
                 }
