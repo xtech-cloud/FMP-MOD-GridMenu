@@ -16,13 +16,24 @@
   <GRPC address="https://localhost:19000"/>
   <!-- 样式列表
       name: 名称
+      Background.image: 背景图片
+      Grid.colume: 网格布局的列数
+      Grid.row: 网格布局的行数
+      Cell.name: 单元格的名称
+      Cell.columnStart: 单元格的开始列数
+      Cell.columnEnd: 单元格的结束列数
+      Cell.rowStart: 单元格的开始行数
+      Cell.rowEnd: 单元格的结束行数
+      Cell.Content.type: 单元格的内容类型，可选值为[RawImage, Carousel, Button, SlicedImage]
+      Cell.Content.ParameterS: 单元格的内容的类型的参数
+      Cell.Content.SubjectS: 单元格的内容被激活后发布的主题列表
     -->
   <Styles>
     <Style name="default">
       <Background image="bg.jpg"/>
       <Grid column="96" row="54"/>
       <CellS>
-        <Cell name="logo" columnStart="3" columnEnd="63" rowStart="2" rowEnd="4" marginLeft="0" marginRight="0" marginTop="0" marginBottom="0">
+        <Cell name="logo" columnStart="3" columnEnd="63" rowStart="2" rowEnd="4">
           <Content type="RawImage">
             <ParameterS>
               <Parameter key="image" value="logo.png" type="string"/>
@@ -100,6 +111,13 @@
             <ParameterS>
               <Parameter key="image" value="entry-2.png" type="string"/>
             </ParameterS>
+            <SubjectS>
+              <Subject message="/XTC/GridMenu/Hide">
+                <Parameters>
+                  <Parameter key="uid" value="default" type="string"/>
+                </Parameters>
+              </Subject>
+            </SubjectS>
           </Content>
         </Cell>
         <Cell name="资源2" columnStart="17" columnEnd="24" rowStart="42" rowEnd="52">
@@ -107,6 +125,13 @@
             <ParameterS>
               <Parameter key="image" value="entry-2.png" type="string"/>
             </ParameterS>
+            <SubjectS>
+              <Subject message="/XTC/GridMenu/Hide">
+                <Parameters>
+                  <Parameter key="uid" value="default" type="string"/>
+                </Parameters>
+              </Subject>
+            </SubjectS>
           </Content>
         </Cell>
         <Cell name="资源3" columnStart="28" columnEnd="35" rowStart="42" rowEnd="52">
@@ -114,6 +139,13 @@
             <ParameterS>
               <Parameter key="image" value="entry-2.png" type="string"/>
             </ParameterS>
+            <SubjectS>
+              <Subject message="/XTC/GridMenu/Hide">
+                <Parameters>
+                  <Parameter key="uid" value="default" type="string"/>
+                </Parameters>
+              </Subject>
+            </SubjectS>
           </Content>
         </Cell>
         <Cell name="资源4" columnStart="39" columnEnd="46" rowStart="42" rowEnd="52">
@@ -121,6 +153,13 @@
             <ParameterS>
               <Parameter key="image" value="entry-2.png" type="string"/>
             </ParameterS>
+            <SubjectS>
+              <Subject message="/XTC/GridMenu/Hide">
+                <Parameters>
+                  <Parameter key="uid" value="default" type="string"/>
+                </Parameters>
+              </Subject>
+            </SubjectS>
           </Content>
         </Cell>
         <Cell name="资源5" columnStart="50" columnEnd="57" rowStart="42" rowEnd="52">
@@ -128,6 +167,13 @@
             <ParameterS>
               <Parameter key="image" value="entry-2.png" type="string"/>
             </ParameterS>
+            <SubjectS>
+              <Subject message="/XTC/GridMenu/Hide">
+                <Parameters>
+                  <Parameter key="uid" value="default" type="string"/>
+                </Parameters>
+              </Subject>
+            </SubjectS>
           </Content>
         </Cell>
         <Cell name="资源6" columnStart="61" columnEnd="68" rowStart="42" rowEnd="52">
@@ -135,6 +181,13 @@
             <ParameterS>
               <Parameter key="image" value="entry-2.png" type="string"/>
             </ParameterS>
+            <SubjectS>
+              <Subject message="/XTC/GridMenu/Hide">
+                <Parameters>
+                  <Parameter key="uid" value="default" type="string"/>
+                </Parameters>
+              </Subject>
+            </SubjectS>
           </Content>
         </Cell>
         <Cell name="资源7" columnStart="72" columnEnd="79" rowStart="42" rowEnd="52">
@@ -142,6 +195,13 @@
             <ParameterS>
               <Parameter key="image" value="entry-2.png" type="string"/>
             </ParameterS>
+            <SubjectS>
+              <Subject message="/XTC/GridMenu/Hide">
+                <Parameters>
+                  <Parameter key="uid" value="default" type="string"/>
+                </Parameters>
+              </Subject>
+            </SubjectS>
           </Content>
         </Cell>
         <Cell name="资源8" columnStart="83" columnEnd="90" rowStart="42" rowEnd="52">
@@ -149,6 +209,13 @@
             <ParameterS>
               <Parameter key="image" value="entry-2.png" type="string"/>
             </ParameterS>
+            <SubjectS>
+              <Subject message="/XTC/GridMenu/Hide">
+                <Parameters>
+                  <Parameter key="uid" value="default" type="string"/>
+                </Parameters>
+              </Subject>
+            </SubjectS>
           </Content>
         </Cell>
       </CellS>

@@ -193,6 +193,11 @@ namespace XTC.FMP.MOD.GridMenu.LIB.Unity
                     buildRawImage(cloneCell, imageValue);
                     var btn = cloneCell.AddComponent<Button>();
                     btn.targetGraphic = cloneCell.GetComponent<RawImage>();
+                    btn.onClick.AddListener(() =>
+                    {
+                        Dictionary<string, object> variableS = new Dictionary<string, object>();
+                        publishSubjects(cell.content.subjectS, variableS);
+                    });
                 }
                 else if (cell.content.type == "Carousel")
                 {
