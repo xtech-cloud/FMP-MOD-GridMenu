@@ -172,6 +172,18 @@ namespace XTC.FMP.MOD.GridMenu.LIB.Unity
                         publishSubjects(cell.content.subjectS, variableS);
                     });
                 }
+                else if (cell.content.type == "ClickArea")
+                {
+                    var img = cloneCell.AddComponent<RawImage>();
+                    img.color = new Color(0, 0, 0, 0);
+                    var btn = cloneCell.AddComponent<Button>();
+                    btn.transition = Selectable.Transition.None;
+                    btn.onClick.AddListener(() =>
+                    {
+                        Dictionary<string, object> variableS = new Dictionary<string, object>();
+                        publishSubjects(cell.content.subjectS, variableS);
+                    });
+                }
             }
         }
 
