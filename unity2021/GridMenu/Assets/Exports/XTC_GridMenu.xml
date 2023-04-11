@@ -24,7 +24,7 @@
       Cell.columnEnd: 单元格的结束列数
       Cell.rowStart: 单元格的开始行数
       Cell.rowEnd: 单元格的结束行数
-      Cell.Content.type: 单元格的内容类型，可选值为[RawImage, Carousel, Button, SlicedImage]
+      Cell.Content.type: 单元格的内容类型，可选值为[RawImage, Button, SlicedImage]
       Cell.Content.ParameterS: 单元格的内容的类型的参数
       Cell.Content.SubjectS: 单元格的内容被激活后发布的主题列表
     -->
