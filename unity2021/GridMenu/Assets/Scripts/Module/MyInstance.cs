@@ -18,32 +18,12 @@ namespace XTC.FMP.MOD.GridMenu.LIB.Unity
     /// </summary>
     public class MyInstance : MyInstanceBase
     {
-        public class CarouselTask
-        {
-            public string type = "";
-            public string uri = "";
-            public int duration = 0;
-        }
-
-        public class CarouselTaskPool
-        {
-            public int timer = 0;
-            public int activeIndex = 0;
-            public GameObject gameObject;
-            public List<CarouselTask> taskS = new List<CarouselTask>();
-        }
-
         public class UiReference
         {
             public RectTransform rtCellTemplate;
         }
 
         private UiReference uiReference_ = new UiReference();
-        private bool isOpened_ = false;
-        /// <summary>
-        /// key：gameobject的instanceId
-        /// </summary>
-        private Dictionary<int, CarouselTaskPool> carouselTaskPoolS_ = new Dictionary<int, CarouselTaskPool>();
 
         public MyInstance(string _uid, string _style, MyConfig _config, MyCatalog _catalog, LibMVCS.Logger _logger, Dictionary<string, LibMVCS.Any> _settings, MyEntryBase _entry, MonoBehaviour _mono, GameObject _rootAttachments)
             : base(_uid, _style, _config, _catalog, _logger, _settings, _entry, _mono, _rootAttachments)
@@ -90,16 +70,6 @@ namespace XTC.FMP.MOD.GridMenu.LIB.Unity
         {
             rootUI.gameObject.SetActive(true);
             rootWorld.gameObject.SetActive(true);
-            isOpened_ = true;
-
-
-            foreach (var pair in carouselTaskPoolS_)
-            {
-                carouselTaskPoolS_[pair.Key].activeIndex = 0;
-                carouselTaskPoolS_[pair.Key].timer = 0;
-                refreshCarousel(pair.Key);
-            }
-            mono_.StartCoroutine(updateCarouselTick());
         }
 
         /// <summary>
@@ -109,7 +79,6 @@ namespace XTC.FMP.MOD.GridMenu.LIB.Unity
         {
             rootUI.gameObject.SetActive(false);
             rootWorld.gameObject.SetActive(false);
-            isOpened_ = false;
         }
 
         private void createCellS()
@@ -203,25 +172,6 @@ namespace XTC.FMP.MOD.GridMenu.LIB.Unity
                         publishSubjects(cell.content.subjectS, variableS);
                     });
                 }
-                else if (cell.content.type == "Carousel")
-                {
-                    buildVideo(cloneCell, "");
-                    int instanceID = cloneCell.GetInstanceID();
-                    if (!carouselTaskPoolS_.ContainsKey(instanceID))
-                    {
-                        carouselTaskPoolS_[instanceID] = new CarouselTaskPool();
-                        carouselTaskPoolS_[instanceID].gameObject = cloneCell;
-                    }
-                    var count = tryParseFromParameter<int>(cell.content.parameterS, "count");
-                    for (int i = 0; i < count; i++)
-                    {
-                        var carouselTask = new CarouselTask();
-                        carouselTask.type = tryParseFromParameter<string>(cell.content.parameterS, string.Format("item_{0}_type", i + 1));
-                        carouselTask.uri = tryParseFromParameter<string>(cell.content.parameterS, string.Format("item_{0}_uri", i + 1));
-                        carouselTask.duration = tryParseFromParameter<int>(cell.content.parameterS, string.Format("item_{0}_duration", i + 1));
-                        carouselTaskPoolS_[instanceID].taskS.Add(carouselTask);
-                    }
-                }
             }
         }
 
@@ -289,51 +239,6 @@ namespace XTC.FMP.MOD.GridMenu.LIB.Unity
                 }
             }
             return (Type)value;
-        }
-
-        private IEnumerator updateCarouselTick()
-        {
-            while (isOpened_)
-            {
-                foreach (var pair in carouselTaskPoolS_)
-                {
-                    var taskPool = carouselTaskPoolS_[pair.Key];
-                    var task = taskPool.taskS[taskPool.activeIndex];
-                    if (taskPool.timer >= task.duration)
-                    {
-                        taskPool.timer = 0;
-                        taskPool.activeIndex += 1;
-                        if (taskPool.activeIndex >= taskPool.taskS.Count)
-                            taskPool.activeIndex = 0;
-                        refreshCarousel(pair.Key);
-                    }
-                    taskPool.timer += 1;
-                }
-                yield return new WaitForSeconds(1);
-            }
-        }
-
-        private void refreshCarousel(int _gameObejctID)
-        {
-            var taskPool = carouselTaskPoolS_[_gameObejctID];
-            var task = taskPool.taskS[taskPool.activeIndex];
-            if (task.type == "Image")
-            {
-                loadTextureFromTheme(task.uri, (_texture) =>
-                {
-                    taskPool.gameObject.GetComponent<RawImage>().texture = _texture;
-                }, () => { });
-            }
-            else if (task.type == "Video")
-            {
-                string path = settings_["path.themes"].AsString();
-                path = System.IO.Path.Combine(path, MyEntryBase.ModuleName);
-                string filefullpath = System.IO.Path.Combine(path, task.uri);
-                var vp = taskPool.gameObject.GetComponent<VideoPlayer>();
-                vp.url = filefullpath;
-                taskPool.gameObject.GetComponent<RawImage>().texture = vp.targetTexture;
-                vp.Play();
-            }
         }
     }
 }
