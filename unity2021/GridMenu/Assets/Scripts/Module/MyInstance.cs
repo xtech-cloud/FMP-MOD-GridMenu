@@ -173,6 +173,10 @@ namespace XTC.FMP.MOD.GridMenu.LIB.Unity
                 var rtCloneCell = cloneCell.GetComponent<RectTransform>();
                 rtCloneCell.anchoredPosition = new Vector2(x, y);
                 rtCloneCell.sizeDelta = new Vector2(width, height);
+                cloneCell.SetActive(true);
+                if (null == cell.content)
+                    continue;
+
                 if (cell.content.type == "RawImage")
                 {
                     var imageValue = tryParseFromParameter<string>(cell.content.parameterS, "image");
@@ -218,7 +222,6 @@ namespace XTC.FMP.MOD.GridMenu.LIB.Unity
                         carouselTaskPoolS_[instanceID].taskS.Add(carouselTask);
                     }
                 }
-                cloneCell.SetActive(true);
             }
         }
 

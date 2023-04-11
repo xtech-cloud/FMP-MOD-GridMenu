@@ -52,7 +52,7 @@ namespace XTC.FMP.MOD.GridMenu.LIB.Unity
             [XmlAttribute("rowEnd")]
             public int rowEnd { get; set; } = 0;
             [XmlElement("Content")]
-            public CellContent content { get; set; } = new CellContent();
+            public CellContent content { get; set; }
         }
 
         public class Grid

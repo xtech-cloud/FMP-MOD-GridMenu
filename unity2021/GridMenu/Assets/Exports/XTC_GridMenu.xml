@@ -41,17 +41,6 @@
           </Content>
         </Cell>
         <Cell name="carousel" columnStart="3" columnEnd="63" rowStart="6" rowEnd="39">
-          <Content type="Carousel">
-            <ParameterS>
-              <Parameter key="count" value="2" type="int"/>
-              <Parameter key="item_1_type" value="Image" type="string"/>
-              <Parameter key="item_1_uri" value="carousel_1.jpg" type="string"/>
-              <Parameter key="item_1_duration" value="5" type="int"/>
-              <Parameter key="item_2_type" value="Video" type="string"/>
-              <Parameter key="item_2_uri" value="carousel_2.mp4" type="string"/>
-              <Parameter key="item_2_duration" value="10" type="int"/>
-            </ParameterS>
-          </Content>
         </Cell>
         <Cell name="入口1" columnStart="66" columnEnd="74" rowStart="6" rowEnd="21">
           <Content type="Button">
